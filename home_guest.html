@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barterin – Guest</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="home-bg">
+  <script>
+    if (localStorage.getItem('isLoggedIn') === '1') {
+      window.location.replace('home_user.html');
+    }
+  </script>
+
+  <header class="navbar">
+    <a href="home_guest.html" class="logo-link">
+      <img src="icons/logo.png" alt="Logo" class="logo"/>
+    </a>
+    <div class="nav-center">
+<div class="dropdown">
+  <button class="categories-btn" id="categoriesToggle">
+    <img src="icons/categories.svg" alt="Categories" class="icon"/>
+    <span>Categories</span>
+    <svg class="icon-dropdown" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+  </button>
+  <ul class="dropdown-menu" id="categoriesMenu">
+    <li><a href="categories/electronics.html">Electronics</a></li>
+    <li><a href="categories/clothing.html">Clothing</a></li>
+    <li><a href="categories/furniture.html">Furniture</a></li>
+    <li><a href="categories/toys.html">Toys</a></li>
+  </ul>
+</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search items…" />
+        <img src="icons/search.png" alt="Search" class="icon-search"/>
+      </div>
+    </div>
+<div class="nav-right">
+    <span class="welcome-text">Welcome,</span>
+    <a href="login.html" class="action-btn">Sign In</a>
+  <a href="favorites.html" class="action-icon-link">
+    <img src="icons/heart.svg" alt="Favorites" class="icon action-icon"/>
+  </a>
+  <a href="my-trades.html" class="action-icon-link">
+    <img src="icons/cart.svg" alt="My Trades" class="icon action-icon"/>
+  </a>
+</div>
+
+  </header>
+
+  <script>
+  document.getElementById('categoriesToggle')
+    .addEventListener('click', e => {
+      document.getElementById('categoriesMenu').classList.toggle('show');
+    });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.dropdown')) {
+      document.getElementById('categoriesMenu').classList.remove('show');
+    }
+  });
+  </script>
+
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Barter Anything,<br>No Cash Needed</h1>
+        <p>Exchange your items for goods of equal value from other users.</p>
+        <a href="upload-item.html" class="btn-primary">Get Started</a>
+
+      </div>
+      <img src="icons/hero-image.png" alt="Barter Illustration" class="large-icon"/>
+    </section>
+
+    <!-- Featured Barter Deals -->
+<section class="featured">
+  <h2>Featured Barter Deals</h2>
+  <div class="featured-grid">
+    <div class="deal-item">
+      <a href="detail-bicycle.html">
+        <div class="deal-thumb">
+          <img src="images/bicycle.jpg" alt="Bicycle">
+        </div>
+        <h3>Bicycle</h3>
+        <p class="price">$100</p>
+      </a>
+    </div>
+    <div class="deal-item">
+      <a href="detail-table.html">
+        <div class="deal-thumb">
+          <img src="images/table.jpg" alt="Table">
+        </div>
+        <h3>Table</h3>
+        <p class="price">$60</p>
+      </a>
+    </div>
+    <div class="deal-item">
+      <a href="detail-sweater.html">
+        <div class="deal-thumb">
+          <img src="images/sweater.jpg" alt="Sweater">
+        </div>
+        <h3>Sweater</h3>
+        <p class="price">$40</p>
+      </a>
+    </div>
+    <div class="deal-item">
+      <a href="detail-dress.html">
+        <div class="deal-thumb">
+          <img src="images/dress.jpg" alt="Dress">
+        </div>
+        <h3>Dress</h3>
+        <p class="price">$50</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Popular Categories -->
+    <section class="categories">
+      <h2>Popular Categories</h2>
+      <div class="category-grid">
+        <div class="cat-item">
+          <img src="icons/electronics.svg" class="icon" alt="Electronics"/>
+          <span>Electronics</span>
+        </div>
+        <div class="cat-item">
+          <img src="icons/clothing.svg" class="icon" alt="Clothing"/>
+          <span>Clothing</span>
+        </div>
+        <div class="cat-item">
+          <img src="icons/furniture.svg" class="icon" alt="Furniture"/>
+          <span>Furniture</span>
+        </div>
+        <div class="cat-item">
+          <img src="icons/toys.svg" class="icon" alt="Toys"/>
+          <span>Toys</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <img src="icons/signup.svg" class="large-step" alt="Sign Up"/>
+          <p>Sign Up & List Items</p>
+        </div>
+        <div class="step">
+          <img src="icons/trade.svg" class="large-step" alt="Trade"/>
+          <p>Find & Offer Trades</p>
+        </div>
+        <div class="step">
+          <img src="icons/exchange.svg" class="large-step" alt="Exchange"/>
+          <p>Agree & Exchange</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <img src="images/user.jpg" class="author-photo" alt="User Photo"/>
+      <blockquote>
+        “Barterin made it so easy to swap things I no longer need for something useful.”
+      </blockquote>
+      <div class="author">
+        <span>– Maria Tan</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    &copy; 2025 Barterin. All rights reserved.
+  </footer>
+</body>
+</html>

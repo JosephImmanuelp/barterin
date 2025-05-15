@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barterin – Register</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="auth-bg">
+  <div class="auth-logo-container">
+    <a href="home_guest.html" class="logo">
+      <img src="icons/logo.png" alt="Logo"/>
+    </a>
+    <div class="card-container">
+      <!-- kiri: Form Register -->
+      <div class="card card-right">
+        <h2>Register</h2>
+        <div class="form-group">
+          <input type="email" id="regEmail" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+          <input type="password" id="regPassword" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+          <input type="password" id="regConfirm" placeholder="Confirm Password"/>
+        </div>
+        <button id="btnSignUp" class="btn btn-primary">Sign Up</button>
+      </div>
+      <!-- kanan: prompt ke Login -->
+      <div class="card card-left">
+        <h2>BARTERIN</h2>
+        <div class="switch-text">
+          <p>Sudah punya akun?</p>
+          <a href="login.html">Masuk di sini!</a>
+        </div>
+        <button onclick="location.href='login.html'" class="btn btn-outline">
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('btnSignUp').addEventListener('click', () => {
+      // (1) Simulasi registrasi: tandai sudah login
+      localStorage.setItem('isLoggedIn', '1');
+      // (2) Redirect ke home_user
+      window.location.replace('home_user.html');
+    });
+  </script>
+</body>
+</html>

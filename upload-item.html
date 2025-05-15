@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Item – Barterin</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="home-bg">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="home_user.html" class="logo-link">
+      <img src="icons/logo.png" alt="Barterin Logo" class="logo"/>
+    </a>
+    <div class="nav-center">
+      <div class="dropdown">
+        <button class="categories-btn" id="categoriesToggle">
+          <img src="icons/categories.svg" alt="Categories" class="icon"/>
+          <span>Categories</span>
+          <svg class="icon-dropdown" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="dropdown-menu" id="categoriesMenu">
+          <li><a href="categories/electronics.html">Electronics</a></li>
+          <li><a href="categories/clothing.html">Clothing</a></li>
+          <li><a href="categories/furniture.html">Furniture</a></li>
+          <li><a href="categories/toys.html">Toys</a></li>
+        </ul>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search items…"/>
+        <img src="icons/search.png" alt="Search" class="icon-search"/>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="welcome-container">
+        <span class="welcome-text">Welcome,</span>
+        <span class="username">Joseph Immanuel</span>
+      </div>
+      <a href="favorites.html" class="action-icon-link">
+        <img src="icons/heart.svg" alt="Favorites" class="icon action-icon"/>
+      </a>
+      <a href="my-trades.html" class="action-icon-link">
+        <img src="icons/cart.svg" alt="My Trades" class="icon action-icon"/>
+      </a>
+      <button id="btnLogout" class="action-btn">Logout</button>
+    </div>
+  </header>
+
+  <!-- UPLOAD FORM SECTION -->
+  <main class="container">
+    <section class="upload-section">
+      <h2>Upload Item Baru</h2>
+      <p class="commission-note">Biaya upload: <strong>Rp 1.000</strong> (termasuk komisi platform)</p>
+      <form action="#" method="post" class="upload-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="itemName">Nama Item</label>
+          <input type="text" id="itemName" name="itemName" placeholder="Contoh: Sepeda Gunung" required/>
+        </div>
+        <div class="form-group">
+          <label for="category">Kategori</label>
+          <select id="category" name="category" required>
+            <option value="">Pilih kategori</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="furniture">Furniture</option>
+            <option value="toys">Toys</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="value">Nilai Perkiraan (Rp)</label>
+          <input type="number" id="value" name="value" placeholder="Misal: 1000000" required/>
+        </div>
+        <div class="form-group">
+          <label for="description">Deskripsi</label>
+          <textarea id="description" name="description" rows="4" placeholder="Deskripsi singkat item…" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="imageUpload">Upload Gambar</label>
+          <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required/>
+        </div>
+        <button type="submit" class="btn-primary">Submit & Bayar Rp 1.000</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    &copy; 2025 Barterin. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('categoriesToggle').addEventListener('click', () => {
+      document.getElementById('categoriesMenu').classList.toggle('show');
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown')) {
+        document.getElementById('categoriesMenu').classList.remove('show');
+      }
+    });
+    document.addEventListener('click', e => {
+      if (e.target.id === 'btnLogout') {
+        localStorage.removeItem('isLoggedIn');
+        window.location.replace('home_guest.html');
+      }
+    });
+  </script>
+</body>
+</html>

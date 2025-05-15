@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barterin – Login</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="auth-bg">
+  <div class="auth-logo-container">
+    <a href="home_guest.html" class="logo">
+      <img src="icons/logo.png" alt="Logo"/>
+    </a>
+    <div class="card-container">
+      <!-- kiri: prompt ke Register -->
+      <div class="card card-left">
+        <h2>BARTERIN</h2>
+        <div class="switch-text">
+          <p>Belum punya akun?</p>
+          <a href="register.html">Daftar di sini!</a>
+        </div>
+        <button onclick="location.href='register.html'" class="btn btn-outline">
+          Sign Up
+        </button>
+      </div>
+      <!-- kanan: Form Login -->
+      <div class="card card-right">
+        <h2>Login</h2>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Password"/>
+        </div>
+        <button id="btnSignIn" class="btn btn-primary">Sign In</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('btnSignIn').addEventListener('click', () => {
+      // (1) Simulasi login: tandai sudah login
+      localStorage.setItem('isLoggedIn', '1');
+      // (2) Redirect ke home_user
+      window.location.replace('home_user.html');
+    });
+  </script>
+</body>
+</html>

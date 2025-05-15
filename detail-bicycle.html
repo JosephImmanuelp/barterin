@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Bicycle – Barterin</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="home-bg">
+  <script>
+    // Jika proteksi detail untuk user, aktifkan ini:
+    // if (localStorage.getItem('isLoggedIn') !== '1') {
+    //   window.location.replace('login.html');
+    // }
+  </script>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="home_guest.html" class="logo-link">
+      <img src="icons/logo.png" alt="Barterin Logo" class="logo"/>
+    </a>
+    <div class="nav-center">
+      <div class="dropdown">
+        <button class="categories-btn" id="categoriesToggle">
+          <img src="icons/categories.svg" alt="Categories" class="icon"/>
+          <span>Categories</span>
+          <svg class="icon-dropdown" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="dropdown-menu" id="categoriesMenu">
+          <li><a href="categories/electronics.html">Electronics</a></li>
+          <li><a href="categories/clothing.html">Clothing</a></li>
+          <li><a href="categories/furniture.html">Furniture</a></li>
+          <li><a href="categories/toys.html">Toys</a></li>
+        </ul>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search items…"/>
+        <img src="icons/search.svg" alt="Search" class="icon-search"/>
+      </div>
+    </div>
+    <div class="nav-right">
+      <script>
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === '1';
+        if (isLoggedIn) {
+          document.write(`
+            <div class="welcome-container">
+              <span class="welcome-text">Welcome,</span>
+              <span class="username">Joseph Immanuel</span>
+            </div>
+            <a href="favorites.html" class="action-icon-link">
+              <img src="icons/heart.svg" alt="Favorites" class="icon action-icon"/>
+            </a>
+            <a href="my-trades.html" class="action-icon-link">
+              <img src="icons/cart.svg" alt="My Trades" class="icon action-icon"/>
+            </a>
+            <button id="btnLogout" class="action-btn">Logout</button>
+          `);
+        } else {
+          document.write(`
+            <span class="welcome-text">Welcome,</span>
+            <a href="login.html" class="action-btn">Sign In</a>
+            <img src="icons/heart.svg" alt="Favorites" class="icon action-icon"/>
+            <img src="icons/cart.svg" alt="Cart" class="icon action-icon"/>
+          `);
+        }
+      </script>
+    </div>
+  </header>
+
+  <!-- DETAIL CONTENT -->
+  <main class="container">
+    <section class="detail-item">
+      <div class="detail-thumb">
+        <img src="images/bicycle.jpg" alt="Bicycle"/>
+      </div>
+      <div class="detail-info">
+        <h1>Bicycle</h1>
+        <p class="price-value">$100</p>
+        <p class="detail-desc">
+          Vintage city bicycle in good condition. Frame size medium, recently serviced,
+          includes front light and bell. Perfect for daily commute or weekend leisure rides.
+        </p>
+        <div class="detail-actions">
+          <script>
+            if (localStorage.getItem('isLoggedIn') === '1') {
+              document.write(`
+                <a href="offer-trade-bicycle.html" class="btn-primary">Offer Trade</a>
+                <a href="chat-bicycle.html" class="btn-secondary">Chat to Negotiate</a>
+              `);
+            } else {
+              document.write(`
+                <a href="login.html" class="btn-primary">Sign In to Trade</a>
+                <a href="login.html" class="btn-secondary">Chat to Negotiate</a>
+              `);
+            }
+          </script>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    &copy; 2025 Barterin. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Dropdown Categories
+    document.getElementById('categoriesToggle').addEventListener('click', () => {
+      document.getElementById('categoriesMenu').classList.toggle('show');
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown')) {
+        document.getElementById('categoriesMenu').classList.remove('show');
+      }
+    });
+    // Logout handler
+    document.addEventListener('click', e => {
+      if (e.target && e.target.id === 'btnLogout') {
+        localStorage.removeItem('isLoggedIn');
+        window.location.replace('home_guest.html');
+      }
+    });
+  </script>
+</body>
+</html>

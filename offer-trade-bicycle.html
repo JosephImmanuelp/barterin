@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Offer Trade – Bicycle – Barterin</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="home-bg">
+  <!-- NAVBAR (sama dengan chat page) -->
+  <header class="navbar">
+    <a href="home_user.html" class="logo-link">
+      <img src="icons/logo.png" alt="Barterin Logo" class="logo"/>
+    </a>
+    <div class="nav-center">
+      <div class="dropdown">
+        <button class="categories-btn" id="categoriesToggle">
+          <img src="icons/categories.svg" alt="Categories" class="icon"/>
+          <span>Categories</span>
+          <svg class="icon-dropdown" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="dropdown-menu" id="categoriesMenu">
+          <li><a href="categories/electronics.html">Electronics</a></li>
+          <li><a href="categories/clothing.html">Clothing</a></li>
+          <li><a href="categories/furniture.html">Furniture</a></li>
+          <li><a href="categories/toys.html">Toys</a></li>
+        </ul>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search items…"/>
+        <img src="icons/search.svg" alt="Search" class="icon-search"/>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="welcome-container">
+        <span class="welcome-text">Welcome,</span>
+        <span class="username">Joseph Immanuel</span>
+      </div>
+      <a href="favorites.html" class="action-icon-link">
+        <img src="icons/heart.svg" alt="Favorites" class="icon action-icon"/>
+      </a>
+      <a href="my-trades.html" class="action-icon-link">
+        <img src="icons/cart.svg" alt="My Trades" class="icon action-icon"/>
+      </a>
+      <button id="btnLogout" class="action-btn">Logout</button>
+    </div>
+  </header>
+
+  <!-- OFFER TRADE FORM -->
+  <main class="container">
+    <section class="offer-section">
+      <h2>Offer Trade untuk Bicycle</h2>
+      <form action="#" method="post" class="offer-form">
+        <div class="form-group">
+          <label for="yourItem">Item yang Kamu Tawarkan</label>
+          <input type="text" id="yourItem" name="yourItem" placeholder="Contoh: Sweater" required/>
+        </div>
+        <div class="form-group">
+          <label for="yourValue">Nilai Perkiraan Kamu</label>
+          <input type="number" id="yourValue" name="yourValue" placeholder="Contoh: 50" required/>
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan Tambahan (opsional)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tulis pesan…"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Kirim Offer</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    &copy; 2025 Barterin. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS (dropdown + logout) -->
+  <script>
+    document.getElementById('categoriesToggle').addEventListener('click', () => {
+      document.getElementById('categoriesMenu').classList.toggle('show');
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown')) {
+        document.getElementById('categoriesMenu').classList.remove('show');
+      }
+    });
+    document.addEventListener('click', e => {
+      if (e.target.id === 'btnLogout') {
+        localStorage.removeItem('isLoggedIn');
+        window.location.replace('home_guest.html');
+      }
+    });
+  </script>
+</body>
+</html>
+    
