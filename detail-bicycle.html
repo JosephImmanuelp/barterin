@@ -7,13 +7,6 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="home-bg">
-  <script>
-    // Jika proteksi detail untuk user, aktifkan ini:
-    // if (localStorage.getItem('isLoggedIn') !== '1') {
-    //   window.location.replace('login.html');
-    // }
-  </script>
-
   <!-- NAVBAR -->
   <header class="navbar">
     <a href="home_guest.html" class="logo-link">
@@ -76,6 +69,13 @@
       <div class="detail-info">
         <h1>Bicycle</h1>
         <p class="price-value">$100</p>
+
+        <!-- Detail uploader -->
+        <div class="uploader-info">
+          <img src="images/user-maria.jpg" alt="Uploader Maria Tan" class="uploader-photo"/>
+          <span class="uploader-name">Maria Tan</span>
+        </div>
+
         <p class="detail-desc">
           Vintage city bicycle in good condition. Frame size medium, recently serviced,
           includes front light and bell. Perfect for daily commute or weekend leisure rides.
@@ -86,11 +86,15 @@
               document.write(`
                 <a href="offer-trade-bicycle.html" class="btn-primary">Offer Trade</a>
                 <a href="chat-bicycle.html" class="btn-secondary">Chat to Negotiate</a>
+                <button id="shareBtn" class="btn-secondary">Share</button>
+                <button id="favBtn" class="btn-secondary">Save to Favorites</button>
               `);
             } else {
               document.write(`
                 <a href="login.html" class="btn-primary">Sign In to Trade</a>
                 <a href="login.html" class="btn-secondary">Chat to Negotiate</a>
+                <a href="login.html" class="btn-secondary">Share</a>
+                <a href="login.html" class="btn-secondary">Save to Favorites</a>
               `);
             }
           </script>
@@ -106,7 +110,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Dropdown Categories
+    // Categories dropdown
     document.getElementById('categoriesToggle').addEventListener('click', () => {
       document.getElementById('categoriesMenu').classList.toggle('show');
     });
@@ -115,11 +119,19 @@
         document.getElementById('categoriesMenu').classList.remove('show');
       }
     });
-    // Logout handler
+    // Logout
     document.addEventListener('click', e => {
-      if (e.target && e.target.id === 'btnLogout') {
+      if (e.target.id === 'btnLogout') {
         localStorage.removeItem('isLoggedIn');
         window.location.replace('home_guest.html');
+      }
+      // Share handler (contoh sederhana)
+      if (e.target.id === 'shareBtn') {
+        navigator.share?.({ title: 'Bicycle on Barterin', url: window.location.href });
+      }
+      // Favorites handler
+      if (e.target.id === 'favBtn') {
+        window.location.href = 'favorites.html';
       }
     });
   </script>
