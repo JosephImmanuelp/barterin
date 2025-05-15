@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Berhasil – Barterin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-bg">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="home_user.html" class="logo-link">
+      <img src="icons/logo.png" alt="Barterin Logo" class="logo">
+    </a>
+    <div class="nav-center">
+      <div class="dropdown">
+        <button class="categories-btn" id="categoriesToggle">
+          <img src="icons/categories.svg" alt="Categories" class="icon">
+          <span>Categories</span>
+          <svg class="icon-dropdown" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="dropdown-menu" id="categoriesMenu">
+          <li><a href="categories/electronics.html">Electronics</a></li>
+          <li><a href="categories/clothing.html">Clothing</a></li>
+          <li><a href="categories/furniture.html">Furniture</a></li>
+          <li><a href="categories/toys.html">Toys</a></li>
+        </ul>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search items…">
+        <img src="icons/search.svg" alt="Search" class="icon-search">
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="welcome-container">
+        <span class="welcome-text">Welcome,</span>
+        <span class="username">Joseph Immanuel</span>
+      </div>
+      <a href="favorites.html" class="action-icon-link">
+        <img src="icons/heart.svg" alt="Favorites" class="icon action-icon">
+      </a>
+      <a href="my-trades.html" class="action-icon-link">
+        <img src="icons/cart.svg" alt="My Trades" class="icon action-icon">
+      </a>
+      <button id="btnLogout" class="action-btn">Logout</button>
+    </div>
+  </header>
+
+  <!-- UPLOAD SUCCESS CONTENT -->
+  <main class="container">
+    <section class="success-section" style="text-align:center; padding:60px 20px">
+      <img src="images/upload-success.png" alt="Upload Success" style="max-width:200px; margin-bottom:20px;">
+      <h1>Item Berhasil Diunggah!</h1>
+      <p style="margin: 16px 0; font-size: 1.1rem;">Terima kasih telah mengunggah item kamu. Kami akan segera menampilkannya di daftar barter.</p>
+      <a href="home_user.html" class="btn-primary" style="margin-top:20px; display:inline-block;">Kembali ke Beranda</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    &copy; 2025 Barterin. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('categoriesToggle').addEventListener('click', () => {
+      document.getElementById('categoriesMenu').classList.toggle('show');
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown')) {
+        document.getElementById('categoriesMenu').classList.remove('show');
+      }
+    });
+    document.addEventListener('click', e => {
+      if (e.target.id === 'btnLogout') {
+        localStorage.removeItem('isLoggedIn');
+        window.location.replace('home_guest.html');
+      }
+    });
+  </script>
+</body>
+</html>
