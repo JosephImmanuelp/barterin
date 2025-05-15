@@ -448,3 +448,23 @@ header.navbar {
   background: #b88b4a;
   color: #fff;
 }
+
+/* Uploader Info */
+.uploader-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.uploader-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;    /* bikin lingkaran */
+  object-fit: cover;
+  border: 2px solid #b88b4a;
+}
+.uploader-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
