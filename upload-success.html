@@ -1,82 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upload Item – Barterin</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    .upload-hero {
-      background: #fdf6ec;
-      padding: 40px 20px;
-      border-radius: 12px;
-      text-align: center;
-      margin: 40px auto 20px;
-    }
-    .upload-hero img {
-      width: 160px;
-      margin-bottom: 20px;
-    }
-    .upload-hero h1 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-    .upload-hero p {
-      font-size: 1rem;
-      color: #555;
-    }
-    .upload-form-box {
-      background: #fff;
-      padding: 40px;
-      max-width: 600px;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .upload-form .form-group {
-      margin-bottom: 20px;
-    }
-    .upload-form .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-    .upload-form .form-group input,
-    .upload-form .form-group select,
-    .upload-form .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .upload-form button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #b88b4a;
-      color: #fff;
-      cursor: pointer;
-    }
-    .commission-note {
-      text-align: center;
-      margin-bottom: 20px;
-      font-style: italic;
-      color: #666;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Berhasil – Barterin</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="home-bg">
   <!-- NAVBAR -->
   <header class="navbar">
     <a href="home_user.html" class="logo-link">
-      <img src="icons/logo.png" alt="Barterin Logo" class="logo"/>
+      <img src="icons/logo.png" alt="Barterin Logo" class="logo">
     </a>
     <div class="nav-center">
       <div class="dropdown">
         <button class="categories-btn" id="categoriesToggle">
-          <img src="icons/categories.svg" alt="Categories" class="icon"/>
+          <img src="icons/categories.svg" alt="Categories" class="icon">
           <span>Categories</span>
           <svg class="icon-dropdown" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
         </button>
@@ -88,8 +27,8 @@
         </ul>
       </div>
       <div class="search-bar">
-        <input type="text" placeholder="Search items…"/>
-        <img src="icons/search.png" alt="Search" class="icon-search"/>
+        <input type="text" placeholder="Search items…">
+        <img src="icons/search.svg" alt="Search" class="icon-search">
       </div>
     </div>
     <div class="nav-right">
@@ -98,55 +37,22 @@
         <span class="username">Joseph Immanuel</span>
       </div>
       <a href="favorites.html" class="action-icon-link">
-        <img src="icons/heart.svg" alt="Favorites" class="icon action-icon"/>
+        <img src="icons/heart.svg" alt="Favorites" class="icon action-icon">
       </a>
       <a href="my-trades.html" class="action-icon-link">
-        <img src="icons/cart.svg" alt="My Trades" class="icon action-icon"/>
+        <img src="icons/cart.svg" alt="My Trades" class="icon action-icon">
       </a>
       <button id="btnLogout" class="action-btn">Logout</button>
     </div>
   </header>
 
-  <!-- HERO ILLUSTRATION -->
+  <!-- UPLOAD SUCCESS CONTENT -->
   <main class="container">
-    <section class="upload-hero">
-      <img src="images/upload-illustration.png" alt="Upload Illustration"/>
-      <h1>Upload Your Item</h1>
-      <p>List your item for others to barter with. Only Rp 5.000 per listing.</p>
-    </section>
-
-    <!-- FORM -->
-    <section class="upload-form-box">
-      <form action="upload-success.html" method="get" class="upload-form" enctype="multipart/form-data">
-        <div class="commission-note">* Biaya upload Rp 5.000 akan dikenakan saat submit</div>
-        <div class="form-group">
-          <label for="itemName">Nama Item</label>
-          <input type="text" id="itemName" name="itemName" required>
-        </div>
-        <div class="form-group">
-          <label for="category">Kategori</label>
-          <select id="category" name="category" required>
-            <option value="">Pilih kategori</option>
-            <option value="electronics">Electronics</option>
-            <option value="clothing">Clothing</option>
-            <option value="furniture">Furniture</option>
-            <option value="toys">Toys</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="value">Nilai Perkiraan (Rp)</label>
-          <input type="number" id="value" name="value" required>
-        </div>
-        <div class="form-group">
-          <label for="description">Deskripsi</label>
-          <textarea id="description" name="description" rows="4" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="imageUpload">Upload Gambar</label>
-          <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
-        </div>
-        <button type="submit">Submit & Bayar Rp 5.000</button>
-      </form>
+    <section class="success-section" style="text-align:center; padding:60px 20px">
+      <img src="images/upload-success.png" alt="Upload Success" style="max-width:200px; margin-bottom:20px;">
+      <h1>Item Berhasil Diunggah!</h1>
+      <p style="margin: 16px 0; font-size: 1.1rem;">Terima kasih telah mengunggah item kamu. Kami akan segera menampilkannya di daftar barter.</p>
+      <a href="home_user.html" class="btn-primary" style="margin-top:20px; display:inline-block;">Kembali ke Beranda</a>
     </section>
   </main>
 
@@ -163,9 +69,11 @@
         document.getElementById('categoriesMenu').classList.remove('show');
       }
     });
-    document.getElementById('btnLogout').addEventListener('click', () => {
-      localStorage.removeItem('isLoggedIn');
-      window.location.replace('home_guest.html');
+    document.addEventListener('click', e => {
+      if (e.target.id === 'btnLogout') {
+        localStorage.removeItem('isLoggedIn');
+        window.location.replace('home_guest.html');
+      }
     });
   </script>
 </body>
