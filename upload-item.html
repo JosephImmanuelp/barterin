@@ -5,6 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Upload Item – Barterin</title>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    .upload-hero {
+      background: #fdf6ec;
+      padding: 40px 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 40px auto 20px;
+    }
+    .upload-hero img {
+      width: 160px;
+      margin-bottom: 20px;
+    }
+    .upload-hero h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .upload-hero p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .upload-form-box {
+      background: #fff;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .upload-form .form-group {
+      margin-bottom: 20px;
+    }
+    .upload-form .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .upload-form .form-group input,
+    .upload-form .form-group select,
+    .upload-form .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .upload-form button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #b88b4a;
+      color: #fff;
+      cursor: pointer;
+    }
+    .commission-note {
+      text-align: center;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #666;
+    }
+  </style>
 </head>
 <body class="home-bg">
   <!-- NAVBAR -->
@@ -28,7 +89,7 @@
       </div>
       <div class="search-bar">
         <input type="text" placeholder="Search items…"/>
-        <img src="icons/search.png" alt="Search" class="icon-search"/>
+        <img src="icons/search.svg" alt="Search" class="icon-search"/>
       </div>
     </div>
     <div class="nav-right">
@@ -46,15 +107,21 @@
     </div>
   </header>
 
-  <!-- UPLOAD FORM SECTION -->
+  <!-- HERO ILLUSTRATION -->
   <main class="container">
-    <section class="upload-section">
-      <h2>Upload Item Baru</h2>
-      <p class="commission-note">Biaya upload: <strong>Rp 1.000</strong> (termasuk komisi platform)</p>
-      <form action="#" method="post" class="upload-form" enctype="multipart/form-data">
+    <section class="upload-hero">
+      <img src="images/upload-illustration.png" alt="Upload Illustration"/>
+      <h1>Upload Your Item</h1>
+      <p>List your item for others to barter with. Only Rp 5.000 per listing.</p>
+    </section>
+
+    <!-- FORM -->
+    <section class="upload-form-box">
+      <form action="upload-success.html" method="post" class="upload-form" enctype="multipart/form-data">
+        <div class="commission-note">* Biaya upload Rp 5.000 akan dikenakan saat submit</div>
         <div class="form-group">
           <label for="itemName">Nama Item</label>
-          <input type="text" id="itemName" name="itemName" placeholder="Contoh: Sepeda Gunung" required/>
+          <input type="text" id="itemName" name="itemName" required>
         </div>
         <div class="form-group">
           <label for="category">Kategori</label>
@@ -68,27 +135,25 @@
         </div>
         <div class="form-group">
           <label for="value">Nilai Perkiraan (Rp)</label>
-          <input type="number" id="value" name="value" placeholder="Misal: 1000000" required/>
+          <input type="number" id="value" name="value" required>
         </div>
         <div class="form-group">
           <label for="description">Deskripsi</label>
-          <textarea id="description" name="description" rows="4" placeholder="Deskripsi singkat item…" required></textarea>
+          <textarea id="description" name="description" rows="4" required></textarea>
         </div>
         <div class="form-group">
           <label for="imageUpload">Upload Gambar</label>
-          <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required/>
+          <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
         </div>
-        <button type="submit" class="btn-primary">Submit & Bayar Rp 1.000</button>
+        <button type="submit">Submit & Bayar Rp 5.000</button>
       </form>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     &copy; 2025 Barterin. All rights reserved.
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
     document.getElementById('categoriesToggle').addEventListener('click', () => {
       document.getElementById('categoriesMenu').classList.toggle('show');
